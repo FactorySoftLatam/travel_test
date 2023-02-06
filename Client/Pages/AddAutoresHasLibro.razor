@@ -1,0 +1,36 @@
+@page "/add-autores-has-libro"
+@attribute [Authorize]
+
+<PageTitle>Adicionar AutoresHasLibro</PageTitle>
+    <div class="col-md-12">
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">No se puede guardar AutoresHasLibro</RadzenAlert>
+        <RadzenTemplateForm TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" Data="@autoresHasLibro" Visible="@(autoresHasLibro != null)" Submit="@FormSubmit">
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="Autore" Component="Autore" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenDropDownDataGrid Data="@autoresForautoresId" TextProperty="nombre" ValueProperty="id"
+                         Placeholder="Choose Autore" style="display: block; width: 100%" @bind-Value="@autoresHasLibro.autores_id" Name="autores_id"
+                        SelectedValue=@autoresForautoresIdValue Count=@autoresForautoresIdCount LoadData=@autoresForautoresIdLoadData />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="Libro" Component="Libro" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenDropDownDataGrid Data="@librosForlibrosISBN" TextProperty="titulo" ValueProperty="ISBN"
+                         Placeholder="Choose Libro" style="display: block; width: 100%" @bind-Value="@autoresHasLibro.libros_ISBN" Name="libros_ISBN"
+                        SelectedValue=@librosForlibrosISBNValue Count=@librosForlibrosISBNCount LoadData=@librosForlibrosISBNLoadData />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end" style="margin-top: 1rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Guardar" Style="margin-right: 0.5rem" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancelar" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+                </div>
+            </div>
+        </RadzenTemplateForm>
+    </div>
+

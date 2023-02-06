@@ -1,0 +1,60 @@
+@page "/edit-libro"
+@attribute [Authorize]
+
+<PageTitle>Edit Libro</PageTitle>
+    <div class="col-md-12">
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">No se puede guardar Libro</RadzenAlert>
+        <RadzenTemplateForm TItem="TravelLibrary.Server.Models.dbTravelLIB.Libro" Data="@libro" Visible="@(libro != null)" Submit="@FormSubmit">
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="I S B N" Component="ISBN" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@libro.ISBN" Name="ISBN" />
+                    <RadzenRequiredValidator Component="ISBN" Text="ISBN is required" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="titulo" Component="titulo" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.titulo" Name="titulo" />
+                    <RadzenRequiredValidator Component="titulo" Text="titulo is required" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="sinopsis" Component="sinopsis" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.sinopsis" Name="sinopsis" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="npaginas" Component="n_paginas" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.n_paginas" Name="n_paginas" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Text="Editoriale" Component="Editoriale" style="width: 100%" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenDropDownDataGrid Data="@editorialesForeditorialesId" TextProperty="nombre" ValueProperty="id"
+                         Placeholder="Choose Editoriale" style="display: block; width: 100%" @bind-Value="@libro.editoriales_id" Name="editoriales_id"
+                        SelectedValue=@editorialesForeditorialesIdValue Count=@editorialesForeditorialesIdCount LoadData=@editorialesForeditorialesIdLoadData />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end" style="margin-top: 1rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Guardar" Style="margin-right: 0.5rem" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancelar" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+                </div>
+            </div>
+        </RadzenTemplateForm>
+    </div>
+

@@ -1,0 +1,55 @@
+@inject NavigationManager NavigationManager
+
+@code {
+    [Parameter]
+    public bool IsAuthenticated { get; set; }
+
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthenticationStateTask { get; set; }
+
+    /*protected override async Task OnInitializedAsync()
+    {
+        if (!IsAuthenticated)
+        {
+            var redirectUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+            if (!string.IsNullOrEmpty(redirectUrl))
+            {
+                NavigationManager.NavigateTo($"Login?redirectUrl={Uri.EscapeDataString(redirectUrl)}", true);
+            }
+            else
+            {
+                try
+                {
+                    // NavigationManager.NavigateTo("/Login", true);
+                    NavigationManager.NavigateTo(NavigationManager.BaseUri + $"Login", true);
+                    await base.OnInitializedAsync();
+                }
+                catch (Exception e)
+                {
+                    var error = e.Message;
+                }
+            }
+        }
+        else
+        {
+            NavigationManager.NavigateTo("Unauthorized");
+        }*/
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationStateTask;
+
+        if (authenticationState?.User?.Identity is null || !authenticationState.User.Identity.IsAuthenticated)
+        {
+            //var returnUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+            var redirectUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+
+            if (string.IsNullOrWhiteSpace(redirectUrl))
+                NavigationManager.NavigateTo("Login", true);
+            else
+                NavigationManager.NavigateTo($"Login?redirectUrl={Uri.EscapeDataString(redirectUrl)}", true);
+        }
+    }
+}
+}

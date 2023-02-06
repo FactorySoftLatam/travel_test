@@ -1,0 +1,52 @@
+@page "/profile"
+@attribute [Authorize]
+
+<PageTitle>Perfil</PageTitle>
+<RadzenHeading Size="H1" Text="Profile" />
+<div class="row">
+    <div class="col-md-12">
+        <RadzenTemplateForm Method="post" Submit="@FormSubmit" TItem="TravelLibrary.Server.Models.ApplicationUser" Data="@user"
+            Visible="@(user != null)">
+            <RadzenAlert Size="AlertSize.Large" Shade="Shade.Light" AlertStyle="AlertStyle.Danger" Variant="Variant.Flat" Title="No se puede cambiar contraseña" Visible="@errorVisible">@error</RadzenAlert>
+            <RadzenAlert Size="AlertSize.Large" Shade="Shade.Light" AlertStyle="AlertStyle.Success" Variant="Variant.Flat" Visible="@successVisible">
+                Su contraseña ha sido cambiada.
+            </RadzenAlert>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Component="OldPassword" style="width: 100%" Text="Actual Contraseña" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenPassword @bind-Value="@oldPassword" style="display: block; width: 100%"
+                        Name="OldPassword" />
+                    <RadzenRequiredValidator Component="OldPassword" Text="Registre su contraseña actual" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Component="NewPassword" style="width: 100%" Text="Nueva Contraseña" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenPassword @bind-Value="@newPassword" style="display: block; width: 100%"
+                        Name="NewPassword" />
+                    <RadzenRequiredValidator Component="NewPassword" Text="Registre su nueva contraseña" />
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+                <div class="col-md-3">
+                    <RadzenLabel Component="ConfirmPassword" style="width: 100%" Text="Confirmar contraseña" />
+                </div>
+                <div class="col-md-9">
+                    <RadzenPassword @bind-Value="@confirmPassword" style="display: block; width: 100%"
+                        Name="ConfirmPassword" />
+                    <RadzenRequiredValidator Component="ConfirmPassword" Text="Confirmar su nueva contraseña" />
+                    <RadzenCompareValidator Component="ConfirmPassword" Text="Contraseñas deben ser iguales" Value="@newPassword" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end" style="margin-top: 1rem">
+                    <RadzenButton ButtonType="ButtonType.Submit" Text="Cambiar contraseña" Variant="Variant.Flat" />
+                </div>
+            </div>
+        </RadzenTemplateForm>
+    </div>
+</div>
