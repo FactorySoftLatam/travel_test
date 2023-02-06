@@ -1,4 +1,5 @@
-@page "/add-autores-has-libro"
+@page "/add-autores-has-libro"
+
 @attribute [Authorize]
 
 <PageTitle>Adicionar AutoresHasLibro</PageTitle>
@@ -7,11 +8,12 @@
         <RadzenTemplateForm TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" Data="@autoresHasLibro" Visible="@(autoresHasLibro != null)" Submit="@FormSubmit">
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="Autore" Component="Autore" style="width: 100%" />
+                    <RadzenLabel Text="Autor" Component="Autore" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
-                    <RadzenDropDownDataGrid Data="@autoresForautoresId" TextProperty="nombre" ValueProperty="id"
-                         Placeholder="Choose Autore" style="display: block; width: 100%" @bind-Value="@autoresHasLibro.autores_id" Name="autores_id"
+                    <RadzenDropDownDataGrid Data="@autoresForautoresId" TextProperty="autor" ValueProperty="id"
+                        Placeholder="Seleccionar Autor" style="display: block; width: 100%" 
+                        @bind-Value="@autoresHasLibro.autores_id" Name="autores_id"
                         SelectedValue=@autoresForautoresIdValue Count=@autoresForautoresIdCount LoadData=@autoresForautoresIdLoadData />
                 </div>
             </div>
@@ -21,7 +23,7 @@
                 </div>
                 <div class="col-md-9">
                     <RadzenDropDownDataGrid Data="@librosForlibrosISBN" TextProperty="titulo" ValueProperty="ISBN"
-                         Placeholder="Choose Libro" style="display: block; width: 100%" @bind-Value="@autoresHasLibro.libros_ISBN" Name="libros_ISBN"
+                         Placeholder="Seleccionar Libro" style="display: block; width: 100%" @bind-Value="@autoresHasLibro.libros_ISBN" Name="libros_ISBN"
                         SelectedValue=@librosForlibrosISBNValue Count=@librosForlibrosISBNCount LoadData=@librosForlibrosISBNLoadData />
                 </div>
             </div>

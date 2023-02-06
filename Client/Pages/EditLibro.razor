@@ -1,4 +1,5 @@
-@page "/edit-libro"
+@page "/edit-libro"
+
 @attribute [Authorize]
 
 <PageTitle>Edit Libro</PageTitle>
@@ -11,21 +12,21 @@
                 </div>
                 <div class="col-md-9">
                     <RadzenNumeric style="display: block; width: 100%" @bind-Value="@libro.ISBN" Name="ISBN" />
-                    <RadzenRequiredValidator Component="ISBN" Text="ISBN is required" />
+                <RadzenRequiredValidator Component="ISBN" Text="Favor registrar ISBN" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="titulo" Component="titulo" style="width: 100%" />
+                    <RadzenLabel Text="Título" Component="titulo" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.titulo" Name="titulo" />
-                    <RadzenRequiredValidator Component="titulo" Text="titulo is required" />
+                <RadzenRequiredValidator Component="titulo" Text="Favor registrar titulo" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="sinopsis" Component="sinopsis" style="width: 100%" />
+                    <RadzenLabel Text="Sinopsis" Component="sinopsis" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.sinopsis" Name="sinopsis" />
@@ -33,7 +34,7 @@
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="npaginas" Component="n_paginas" style="width: 100%" />
+                    <RadzenLabel Text="No. páginas" Component="n_paginas" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@libro.n_paginas" Name="n_paginas" />
@@ -41,7 +42,7 @@
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="Editoriale" Component="Editoriale" style="width: 100%" />
+                    <RadzenLabel Text="Editorial" Component="Editoriale" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenDropDownDataGrid Data="@editorialesForeditorialesId" TextProperty="nombre" ValueProperty="id"

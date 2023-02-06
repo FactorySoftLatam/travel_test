@@ -8,7 +8,7 @@
         <RadzenText Text="Autores" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
     </div>
     <div class="col-12 col-md-6 justify-content-start justify-content-md-end" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem">
-    <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+    <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Exportar" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
         <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
         <RadzenSplitButtonItem Text="CSV" Value="csv" />
     </RadzenSplitButton>
@@ -25,13 +25,13 @@
         <RadzenDataGrid @ref="grid0" ColumnWidth="200px"  AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true"
             Data="@autores" Count=count LoadData=@Grid0LoadData  TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" RowDoubleClick="@EditRow" >
             <Columns>
-                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="id" Title="id">
+                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="id" Title="ID">
                 </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="nombre" Title="nombre">
+                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="nombre" Title="Nombre">
                 </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="apellidos" Title="apellidos">
+                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="apellidos" Title="Apellidos">
                 </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="autor" Title="autor">
+                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Property="autor" Title="Nombre completo">
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
                     <Template Context="autore">

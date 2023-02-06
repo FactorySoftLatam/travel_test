@@ -62,19 +62,19 @@ namespace TravelLibrary.Client.Pages
             }
             catch (System.Exception ex)
             {
-                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Unable to load Editoriales" });
+                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"No se pueden cargar las Editoriales" });
             }
         }    
 
         protected async Task AddButtonClick(MouseEventArgs args)
         {
-            await DialogService.OpenAsync<AddEditoriale>("Add Editoriale", null);
+            await DialogService.OpenAsync<AddEditoriale>("Adicionar Editorial", null);
             await grid0.Reload();
         }
 
         protected async Task EditRow(DataGridRowMouseEventArgs<TravelLibrary.Server.Models.dbTravelLIB.Editoriale> args)
         {
-            await DialogService.OpenAsync<EditEditoriale>("Edit Editoriale", new Dictionary<string, object> { {"id", args.Data.id} });
+            await DialogService.OpenAsync<EditEditoriale>("Modificar Editorial", new Dictionary<string, object> { {"id", args.Data.id} });
             await grid0.Reload();
         }
 
@@ -82,7 +82,7 @@ namespace TravelLibrary.Client.Pages
         {
             try
             {
-                if (await DialogService.Confirm("Are you sure you want to delete this record?") == true)
+                if (await DialogService.Confirm("¿Esta seguro de elmininar este Registro??") == true)
                 {
                     var deleteResult = await dbTravelLIBService.DeleteEditoriale(id:editoriale.id);
 
@@ -98,7 +98,7 @@ namespace TravelLibrary.Client.Pages
                 { 
                     Severity = NotificationSeverity.Error,
                     Summary = $"Error", 
-                    Detail = $"Unable to delete Editoriale" 
+                    Detail = $"Inhabilitado para borrar esta Editorial" 
                 });
             }
         }

@@ -1,19 +1,10 @@
-using System;
-using System.Net;
 using System.Data;
-using System.Linq;
-using Microsoft.Data.SqlClient;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.AspNetCore.OData.Results;
 using Microsoft.AspNetCore.OData.Deltas;
-using Microsoft.AspNetCore.OData.Formatter;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace TravelLibrary.Server.Controllers.dbTravelLIB
 {
@@ -177,14 +168,26 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                     return BadRequest();
                 }
 
+                int nReg = context.Autores.Count();
+                int maxValue = 0;
+                if (nReg > 0)
+                {
+                    maxValue = context.Autores.Max(x => x.id) + 1;                                    
+                }
+                else
+                {
+                    maxValue = 1;
+                }
+
                 this.OnAutoreCreated(item);
+
+                item.id = maxValue;
+
                 this.context.Autores.Add(item);
                 this.context.SaveChanges();
 
                 var itemToReturn = this.context.Autores.Where(i => i.id == item.id);
-
-                ;
-
+                
                 this.OnAfterAutoreCreated(item);
 
                 return new ObjectResult(SingleResult.Create(itemToReturn))

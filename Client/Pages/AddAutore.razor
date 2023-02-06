@@ -8,29 +8,29 @@
         <RadzenTemplateForm TItem="TravelLibrary.Server.Models.dbTravelLIB.Autore" Data="@autore" Visible="@(autore != null)" Submit="@FormSubmit">
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="id" Component="id" style="width: 100%" />
+                    <RadzenLabel Text="ID" Component="id" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenNumeric style="display: block; width: 100%" @bind-Value="@autore.id" Name="id" />
-                    <RadzenRequiredValidator Component="id" Text="id is required" />
+                    <RadzenRequiredValidator Component="id" Text="ID es un valor necesario" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="nombre" Component="nombre" style="width: 100%" />
+                    <RadzenLabel Text="Nombre(s)" Component="nombre" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@autore.nombre" Name="nombre" />
-                    <RadzenRequiredValidator Component="nombre" Text="nombre is required" />
+                    <RadzenRequiredValidator Component="nombre" Text="Favor Resgitrar Nombre" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="apellidos" Component="apellidos" style="width: 100%" />
+                    <RadzenLabel Text="Apellido(s)" Component="apellidos" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@autore.apellidos" Name="apellidos" />
-                    <RadzenRequiredValidator Component="apellidos" Text="apellidos is required" />
+                    <RadzenRequiredValidator Component="apellidos" Text="Favor Resgitrar apellidos" />
                 </div>
             </div>
             <div class="row">

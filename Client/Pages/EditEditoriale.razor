@@ -1,4 +1,5 @@
-@page "/edit-editoriale"
+@page "/edit-editoriale"
+
 @attribute [Authorize]
 
 <PageTitle>Edit Editoriale</PageTitle>
@@ -7,29 +8,29 @@
         <RadzenTemplateForm TItem="TravelLibrary.Server.Models.dbTravelLIB.Editoriale" Data="@editoriale" Visible="@(editoriale != null)" Submit="@FormSubmit">
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="id" Component="id" style="width: 100%" />
+                    <RadzenLabel Text="ID" Component="id" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenNumeric style="display: block; width: 100%" @bind-Value="@editoriale.id" Name="id" />
-                    <RadzenRequiredValidator Component="id" Text="id is required" />
+                    <RadzenRequiredValidator Component="id" Text="ID es un valor necesario" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="nombre" Component="nombre" style="width: 100%" />
+                    <RadzenLabel Text="Nombre Editorial" Component="nombre" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@editoriale.nombre" Name="nombre" />
-                    <RadzenRequiredValidator Component="nombre" Text="nombre is required" />
+                <RadzenRequiredValidator Component="nombre" Text="Favor registrar Nombre Editorial" />
                 </div>
             </div>
             <div style="margin-bottom: 1rem" class="row">
                 <div class="col-md-3">
-                    <RadzenLabel Text="sede" Component="sede" style="width: 100%" />
+                    <RadzenLabel Text="Sede" Component="sede" style="width: 100%" />
                 </div>
                 <div class="col-md-9">
                     <RadzenTextBox style="display: block; width: 100%" @bind-Value="@editoriale.sede" Name="sede" />
-                    <RadzenRequiredValidator Component="sede" Text="sede is required" />
+                <RadzenRequiredValidator Component="sede" Text="Favor registrar Sede Editorial" />
                 </div>
             </div>
             <div class="row">

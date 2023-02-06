@@ -177,7 +177,20 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                     return BadRequest();
                 }
 
+                int nReg = context.Libros.Count();
+                int maxValue = 0;
+                if (nReg > 0)
+                {
+                    maxValue = context.Libros.Max(x => x.ISBN) + 1;
+                }
+                else
+                {
+                    maxValue = 1;
+                }
+
+
                 this.OnLibroCreated(item);
+                item.ISBN= maxValue;
                 this.context.Libros.Add(item);
                 this.context.SaveChanges();
 

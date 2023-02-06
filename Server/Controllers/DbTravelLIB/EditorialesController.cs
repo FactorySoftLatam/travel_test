@@ -177,7 +177,20 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                     return BadRequest();
                 }
 
+                int nReg = context.Editoriales.Count();
+                int maxValue = 0;
+                if (nReg > 0)
+                {
+                    maxValue = context.Editoriales.Max(x => x.id) + 1;
+                }
+                else
+                {
+                    maxValue = 1;
+                }
+
+
                 this.OnEditorialeCreated(item);
+                item.id = maxValue;
                 this.context.Editoriales.Add(item);
                 this.context.SaveChanges();
 

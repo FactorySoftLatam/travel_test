@@ -62,19 +62,19 @@ namespace TravelLibrary.Client.Pages
             }
             catch (System.Exception ex)
             {
-                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Unable to load Libros" });
+                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"No se pueden cargar los Libros" });
             }
         }    
 
         protected async Task AddButtonClick(MouseEventArgs args)
         {
-            await DialogService.OpenAsync<AddLibro>("Add Libro", null);
+            await DialogService.OpenAsync<AddLibro>("Adicionar Libro", null);
             await grid0.Reload();
         }
 
         protected async Task EditRow(DataGridRowMouseEventArgs<TravelLibrary.Server.Models.dbTravelLIB.Libro> args)
         {
-            await DialogService.OpenAsync<EditLibro>("Edit Libro", new Dictionary<string, object> { {"ISBN", args.Data.ISBN} });
+            await DialogService.OpenAsync<EditLibro>("Modificar Libro", new Dictionary<string, object> { {"ISBN", args.Data.ISBN} });
             await grid0.Reload();
         }
 
@@ -82,7 +82,7 @@ namespace TravelLibrary.Client.Pages
         {
             try
             {
-                if (await DialogService.Confirm("Are you sure you want to delete this record?") == true)
+                if (await DialogService.Confirm("¿Esta seguro de elmininar este Registro?") == true)
                 {
                     var deleteResult = await dbTravelLIBService.DeleteLibro(isbn:libro.ISBN);
 
@@ -98,7 +98,7 @@ namespace TravelLibrary.Client.Pages
                 { 
                     Severity = NotificationSeverity.Error,
                     Summary = $"Error", 
-                    Detail = $"Unable to delete Libro" 
+                    Detail = $"no puede eliminar este Libro" 
                 });
             }
         }

@@ -12,7 +12,7 @@ namespace TravelLibrary.Server.Models.dbTravelLIB
     {
         [Key]
         [Required]
-        public int id { get; set; }
+        public int id { get; set; } 
 
         [Required]
         public string nombre { get; set; }

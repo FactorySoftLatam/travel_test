@@ -62,19 +62,19 @@ namespace TravelLibrary.Client.Pages
             }
             catch (System.Exception ex)
             {
-                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Unable to load Autores" });
+                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"No se han podido cargar los Autores" });
             }
         }    
 
         protected async Task AddButtonClick(MouseEventArgs args)
         {
-            await DialogService.OpenAsync<AddAutore>("Add Autore", null);
+            await DialogService.OpenAsync<AddAutore>("Adicionar Autor", null);
             await grid0.Reload();
         }
 
         protected async Task EditRow(DataGridRowMouseEventArgs<TravelLibrary.Server.Models.dbTravelLIB.Autore> args)
         {
-            await DialogService.OpenAsync<EditAutore>("Edit Autore", new Dictionary<string, object> { {"id", args.Data.id} });
+            await DialogService.OpenAsync<EditAutore>("Modificar Autor", new Dictionary<string, object> { {"id", args.Data.id} });
             await grid0.Reload();
         }
 
@@ -82,7 +82,7 @@ namespace TravelLibrary.Client.Pages
         {
             try
             {
-                if (await DialogService.Confirm("Are you sure you want to delete this record?") == true)
+                if (await DialogService.Confirm("¿Esta seguro de elmininar este Registro?") == true)
                 {
                     var deleteResult = await dbTravelLIBService.DeleteAutore(id:autore.id);
 
@@ -98,7 +98,7 @@ namespace TravelLibrary.Client.Pages
                 { 
                     Severity = NotificationSeverity.Error,
                     Summary = $"Error", 
-                    Detail = $"Unable to delete Autore" 
+                    Detail = $"No puede eliminar este Autor" 
                 });
             }
         }

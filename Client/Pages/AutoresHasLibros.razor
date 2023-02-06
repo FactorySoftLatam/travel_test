@@ -1,13 +1,14 @@
-@page "/autores-has-libros"
+@page "/autores-has-libros"
+
 @attribute [Authorize]
 
 <PageTitle>AutoresHasLibros</PageTitle>
 <div class="row" style="margin-bottom: 1rem">
     <div class="col-12 col-md-6">
-        <RadzenText Text="AutoresHasLibros" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        <RadzenText Text="Libros Autor" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
     </div>
     <div class="col-12 col-md-6 justify-content-start justify-content-md-end" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem">
-    <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+    <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Exportar" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
         <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
         <RadzenSplitButtonItem Text="CSV" Value="csv" />
     </RadzenSplitButton>
@@ -24,7 +25,7 @@
         <RadzenDataGrid @ref="grid0" ColumnWidth="200px"  AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true"
             Data="@autoresHasLibros" Count=count LoadData=@Grid0LoadData  TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" RowDoubleClick="@EditRow" >
             <Columns>
-                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" Property="Autore.nombre" Title="Autore">
+                <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" Property="Autore.autor" Title="Autor">
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro" Property="Libro.titulo" Title="Libro">
                 </RadzenDataGridColumn>

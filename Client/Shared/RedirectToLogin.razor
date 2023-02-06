@@ -7,7 +7,7 @@
     [CascadingParameter]
     private Task<AuthenticationState> AuthenticationStateTask { get; set; }
 
-    /*protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         if (!IsAuthenticated)
         {
@@ -33,10 +33,10 @@
         else
         {
             NavigationManager.NavigateTo("Unauthorized");
-        }*/
+        }
 
 
-    protected override async Task OnInitializedAsync()
+    /*protected override async Task OnInitializedAsync()
     {
         var authenticationState = await AuthenticationStateTask;
 
@@ -50,6 +50,6 @@
             else
                 NavigationManager.NavigateTo($"Login?redirectUrl={Uri.EscapeDataString(redirectUrl)}", true);
         }
-    }
+    }*/
 }
 }

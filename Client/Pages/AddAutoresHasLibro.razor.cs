@@ -67,7 +67,7 @@ namespace TravelLibrary.Client.Pages
             }
             catch (System.Exception ex)
             {
-                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Unable to load Radzen.Design.EntityProperty" });
+                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"No se puede cargar Radzen.Design.EntityProperty" });
             }
         }
 

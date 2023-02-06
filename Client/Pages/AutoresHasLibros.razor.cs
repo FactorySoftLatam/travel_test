@@ -62,19 +62,19 @@ namespace TravelLibrary.Client.Pages
             }
             catch (System.Exception ex)
             {
-                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Unable to load AutoresHasLibros" });
+                NotificationService.Notify(new NotificationMessage(){ Severity = NotificationSeverity.Error, Summary = $"Error", Detail = $"Inhabilitado para cargar Libros por Autor" });
             }
         }    
 
         protected async Task AddButtonClick(MouseEventArgs args)
         {
-            await DialogService.OpenAsync<AddAutoresHasLibro>("Add AutoresHasLibro", null);
+            await DialogService.OpenAsync<AddAutoresHasLibro>("Adicionar Libro Autor", null);
             await grid0.Reload();
         }
 
         protected async Task EditRow(DataGridRowMouseEventArgs<TravelLibrary.Server.Models.dbTravelLIB.AutoresHasLibro> args)
         {
-            await DialogService.OpenAsync<EditAutoresHasLibro>("Edit AutoresHasLibro", new Dictionary<string, object> { {"autores_id", args.Data.autores_id}, {"libros_ISBN", args.Data.libros_ISBN} });
+            await DialogService.OpenAsync<EditAutoresHasLibro>("Modificar Libro Autor", new Dictionary<string, object> { {"autores_id", args.Data.autores_id}, {"libros_ISBN", args.Data.libros_ISBN} });
             await grid0.Reload();
         }
 
@@ -82,7 +82,7 @@ namespace TravelLibrary.Client.Pages
         {
             try
             {
-                if (await DialogService.Confirm("Are you sure you want to delete this record?") == true)
+                if (await DialogService.Confirm("¿Esta seguro de elmininar este Registro?") == true)
                 {
                     var deleteResult = await dbTravelLIBService.DeleteAutoresHasLibro(autoresId:autoresHasLibro.autores_id, librosIsbn:autoresHasLibro.libros_ISBN);
 
@@ -98,7 +98,7 @@ namespace TravelLibrary.Client.Pages
                 { 
                     Severity = NotificationSeverity.Error,
                     Summary = $"Error", 
-                    Detail = $"Unable to delete AutoresHasLibro" 
+                    Detail = $"Inahbilitado para borrar este registro" 
                 });
             }
         }
