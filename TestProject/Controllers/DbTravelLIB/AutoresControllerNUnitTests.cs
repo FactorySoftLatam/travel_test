@@ -13,44 +13,26 @@ namespace TravelLibrary.Server.Controllers.DbTravelLIB
     [TestFixture] //Decorador para identificar la clase del tipo Test (Prueba)
     public partial class AutoresControllerNUnitTests: TestBase
     {
-        //Emuladmos al context
-        //[Inject]
-        //public dbTravelLIBService? dbTravelLIBService { get; set; }
 
-        protected IEnumerable<Autore>? autores;
+      //protected IEnumerable<Autore>? autores;
         protected Autore autor;
         private dbTravelLIBContext context;
         private string DbName="";
+        private int nAuthors = 0;
 
         [SetUp]
         public void SetUp()
-        {
-            autor = Substitute.For<Autore>();
-            autor = new Autore()
-            {
-                id = 300,
-                nombre = "Nombres 1",
-                apellidos = "Apellidos 1"
-            };
-            autor = new Autore()
-            {
-                id = 301,
-                nombre = "Nombres 2",
-                apellidos = "Apellidos2"
-            };
-
-            //Preparación
+        {    
+           //Preparación
             DbName = Guid.NewGuid().ToString();
-            this.context = ConstruirContext(DbName);
+            context = ConstruirContext(DbName);            
+            nAuthors = SetTestAuthors();
         }
 
         [Test]
         [ValidateAntiForgeryToken]
         public void GetAutores_ConsultaAutores_ReturnTrue()
         {
-            //Preparación
-            int nAuthors = SetTestAuthors();
-
             //Hasta aquí hemos guardado datos de prueba 
             //Prueba (Se ejecuta como tal la prueba, pero usando dbcontext y no context...)
             var dbcontext = ConstruirContext(DbName);
