@@ -26,5 +26,6 @@ que contiene:
 * Radzen Components y Radzen Studio Versión Libre
 * .Net 6.0
 * MVC (Model/View/Controller)  Model/Controller =A Server, View (Pages) => Client. 
+* TortoiseGit para el versionamiento, auqnue se puede usar tambien Visual Sutudio (Git)
 
 
