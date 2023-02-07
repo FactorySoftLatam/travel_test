@@ -172,7 +172,7 @@ namespace TravelLibrary.Server.Test.Controllers.DbTravelLIB
 
 
         [Test]
-        public void BorrarAutorExistente()
+        public void BorrarAutorExistente() //Borrar Autor que existe...
         {
             dbTravelLIBContext dbcontext = ConstruirContext(DbName);
             AutoresController controller = new(dbcontext);
