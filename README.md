@@ -15,7 +15,7 @@ Test o prueba práctica .Net MainSoft
 * SQL Server 
 * Blazor
 * Angular-Cli
-* Radzen Components
+* Radzen Components y Radzen Studio Versión Libre
 * .Net 6.0
 * MVC (Model/View/Controller)  Model/Controller =A Server, View (Pages) => Client. 
 
