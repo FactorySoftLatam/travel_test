@@ -28,4 +28,7 @@ que contiene:
 * MVC (Model/View/Controller)  Model/Controller =A Server, View (Pages) => Client. 
 * TortoiseGit para el versionamiento, auqnue se puede usar tambien Visual Sutudio (Git)
 
+# Pruebas con nUnit
+
+![image](https://user-images.githubusercontent.com/122890191/217351397-bb8371eb-35b1-41e2-b5ad-e58412e7a9f0.png)
 
