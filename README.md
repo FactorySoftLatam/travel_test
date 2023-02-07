@@ -32,3 +32,10 @@ que contiene:
 
 ![image](https://user-images.githubusercontent.com/122890191/217351397-bb8371eb-35b1-41e2-b5ad-e58412e7a9f0.png)
 
+# Usuarios
+Al sistema en modo de desarrollo se puede ingresar con login = admin, contraseña = admin
+![image](https://user-images.githubusercontent.com/122890191/217352100-17fb3b2f-1f6b-4510-8b12-66327b7cdde6.png)
+
+# Menú Principal 
+![image](https://user-images.githubusercontent.com/122890191/217352205-dfac3e5e-3544-4a32-8fce-81aef0638f8e.png)
+
