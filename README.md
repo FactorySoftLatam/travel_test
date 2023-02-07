@@ -34,8 +34,11 @@ que contiene:
 
 # Usuarios
 Al sistema en modo de desarrollo se puede ingresar con login = admin, contraseña = admin
-![image](https://user-images.githubusercontent.com/122890191/217352100-17fb3b2f-1f6b-4510-8b12-66327b7cdde6.png)
+
+![image](https://user-images.githubusercontent.com/122890191/217352322-fec5614a-262a-4110-a0ae-7ba2e8ff32b6.png)
+
 
 # Menú Principal 
+
 ![image](https://user-images.githubusercontent.com/122890191/217352205-dfac3e5e-3544-4a32-8fce-81aef0638f8e.png)
 
