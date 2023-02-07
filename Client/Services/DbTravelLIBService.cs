@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 using Radzen;
+using TravelLibrary.Server.Models.dbTravelLIB;
 
 namespace TravelLibrary.Client
 {
@@ -106,12 +107,12 @@ namespace TravelLibrary.Client
 
             var response = await httpClient.SendAsync(httpRequestMessage);
 
-            return await Radzen.HttpResponseMessageExtensions.ReadAsync<TravelLibrary.Server.Models.dbTravelLIB.Autore>(response);
+            return await Radzen.HttpResponseMessageExtensions.ReadAsync<Autore>(response);
         }
 
         partial void OnUpdateAutore(HttpRequestMessage requestMessage);
         
-        public async Task<HttpResponseMessage> UpdateAutore(int id = default(int), TravelLibrary.Server.Models.dbTravelLIB.Autore autore = default(TravelLibrary.Server.Models.dbTravelLIB.Autore))
+        public async Task<HttpResponseMessage> UpdateAutore(int id = default(int), Autore autore = default(Autore))
         {
             var uri = new Uri(baseUri, $"Autores({id})");
 

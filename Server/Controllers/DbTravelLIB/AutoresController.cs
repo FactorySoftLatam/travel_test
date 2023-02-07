@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.AspNetCore.OData.Results;
 using Microsoft.AspNetCore.OData.Deltas;
+using Microsoft.AspNetCore.Http;
 
 namespace TravelLibrary.Server.Controllers.dbTravelLIB
 {
@@ -44,6 +45,7 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
 
             return result;
         }
+
         partial void OnAutoreDeleted(Models.dbTravelLIB.Autore item);
         partial void OnAfterAutoreDeleted(Models.dbTravelLIB.Autore item);
 
@@ -106,7 +108,12 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                 var itemToReturn = this.context.Autores.Where(i => i.id == key);
                 ;
                 this.OnAfterAutoreUpdated(item);
-                return new ObjectResult(SingleResult.Create(itemToReturn));
+                //return new ObjectResult(SingleResult.Create(itemToReturn));
+
+                return new ObjectResult(SingleResult.Create(itemToReturn))
+                {
+                    StatusCode = 201
+                };
             }
             catch(Exception ex)
             {
@@ -139,13 +146,19 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                 this.context.SaveChanges();
 
                 var itemToReturn = this.context.Autores.Where(i => i.id == key);
-                ;
-                return new ObjectResult(SingleResult.Create(itemToReturn));
+                
+                //return new ObjectResult(SingleResult.Create(itemToReturn));
+                return new ObjectResult(SingleResult.Create(itemToReturn))
+                {
+                    StatusCode = 201
+                };
+
             }
             catch(Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 return BadRequest(ModelState);
+                //return StatusCode(StatusCodes.Status500InternalServerError, ex);
             }
         }
 
@@ -169,14 +182,21 @@ namespace TravelLibrary.Server.Controllers.dbTravelLIB
                 }
 
                 int nReg = context.Autores.Count();
+
                 int maxValue = 0;
-                if (nReg > 0)
-                {
-                    maxValue = context.Autores.Max(x => x.id) + 1;                                    
+                if (item.id <= 0)
+                {                    
+                    if (nReg > 0)
+                    {
+                        maxValue = context.Autores.Max(x => x.id) + 1;
+                    }
+                    else
+                    {
+                        maxValue = 1;
+                    }
                 }
-                else
-                {
-                    maxValue = 1;
+                else {
+                    maxValue = item.id;
                 }
 
                 this.OnAutoreCreated(item);
