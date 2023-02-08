@@ -1,5 +1,7 @@
 # Travel Library
-Test o prueba práctica .Net MainSoft
+- Test o prueba práctica .Net MainSoft
+- Miércoles, 08 de febrero de 2023
+- Por: Petronio José Peña Amell  
 
 # Instrucciones 
 
@@ -11,7 +13,9 @@ Test o prueba práctica .Net MainSoft
 # Estrcutura de la Solución
 
 Solución cons tres (3) proyectos: 
+
 ![image](https://user-images.githubusercontent.com/122890191/217349619-2e54f7da-be38-4c62-85a3-5de659a96026.png)
+
 que contiene: 
 * TravelLibrary.Server = App del Lado del Servidor ("Backend")
 * TravelLibrary.Client = App del Lado del Servidor ("Front")
