@@ -24,15 +24,16 @@ que contiene:
 * TravelLibrary.Server.Test = Prubas unitarias con nUnit
 
 # Recursos Básicos Utilizados
-* Visual studio 2022
-* Visual studio Code
-* SQL Server 
-* Blazor
-* Angular-Cli
-* Radzen Components y Radzen Studio Versión Libre
-* .Net 6.0
+
+* [Visual studio 2022 Community]()
+* [Visual studio Code](https://code.visualstudio.com/Download)
+* [SQL Server Express 2019](https://www.microsoft.com/es-co/download/details.aspx?id=101064)
+* Blazor [Tutorial](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/install)
+* [Angular-Cli](https://angular.io/cli)
+* [Radzen Components y Radzen Studio Versión Libre](https://www.radzen.com/blazor-studio/)
+* [.Net 6.0] (https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * MVC (Model/View/Controller)  Model/Controller =A Server, View (Pages) => Client. 
-* TortoiseGit para el versionamiento, auqnue se puede usar tambien Visual Sutudio (Git)
+* [TortoiseGit para el versionamiento](https://tortoisegit.org/download/), auqnue se puede usar tambien Visual Sutudio (Git)
 
 # Pruebas con nUnit
 
@@ -48,3 +49,40 @@ Al sistema en modo de desarrollo se puede ingresar con login = admin, contraseñ
 
 ![image](https://user-images.githubusercontent.com/122890191/217352205-dfac3e5e-3544-4a32-8fce-81aef0638f8e.png)
 
+
+# Publicación APP Blazor
+
+Para publicar la aplicación Blazor en IIS, primero asegúrese de haber instalado la siguiente característica IIS:
+
+![image](https://i.stack.imgur.com/w3DaY.png)
+
+* .NET Core hosting bundle
+* ASP.NET Core Runtime
+
+Descargue e instale el paquete de tiempo de ejecución y alojamiento según su versión.
+
+https://dotnet.microsoft.com/download/dotnet-core/6.0
+
+Después de instalar paquetes de alojamiento, no olvide reiniciar la máquina. Si instaló un paquete de alojamiento Bore Installing IIS, debe repararlo.
+
+ahora abra la aplicación blazor en Visual Studio, haga clic con el botón derecho en un proyecto desde el explorador de soluciones y seleccione la opción "Publicar.."
+
+![image](https://i.stack.imgur.com/r3AY8.png)
+
+Haga clic en Publicar > Iniciar > carpeta > elija una ruta de carpeta y haga clic en el botón "Crear perfil".
+
+![image](https://i.stack.imgur.com/0DW4W.png)
+
+Haga clic en el botón "Publicar".
+
+![image](https://i.stack.imgur.com/reLfK.png)
+
+Ahora, abra IIS.
+
+Haga clic derecho en "SItes" > "Agregar sitio web ...".
+
+Establezca todos los detalles como "Nombre del sitio", "Ruta física", "Dirección IP", etc., y haga clic en el botón "Aceptar".
+
+![image](https://i.stack.imgur.com/yTniV.png)
+
+¡Listo!, ahora haga clic derecho en Examinar y podrá ver su aplicación alojada dentro del navegador.
